@@ -37,9 +37,6 @@ describe('Biblioteca', () => {
     //Datos: Codigo de Libro -> 10
     //Resultado esperado: La posicion del libro -> 1
     it('Buscar un libro que esté en la lista y devolver la posición en la que se encuentra.', () => {
-
-        
-    
         libro.setCodigo(0);
         libro2.setCodigo(10);
         
@@ -56,7 +53,6 @@ describe('Biblioteca', () => {
     //Datos: Codigo de Libro -> 20
     //Resultado esperado: -1 ya que el libro no se encuentra en la lista.
     it('Buscar un libro que no esté en la lista y devolver -1.', () => {
-
         libro.setCodigo(0);
         libro2.setCodigo(10);
         
@@ -72,7 +68,6 @@ describe('Biblioteca', () => {
     //Datos: Cedula de socio -> 111
     //Resultado esperado: Prestamos asociados -> 3
     it('Obtener la cantidad de prestamos vinculados que tiene un socio.', () => {
-
         socio.setCedula(111);
 
         prestamo.setSocio(socio);
@@ -92,7 +87,6 @@ describe('Biblioteca', () => {
     //Datos: Cedula de socio -> 222
     //Resultado esperado: Prestamos asociados -> 0
     it('Obtener como cantidad 0 de prestamos de un socio si no tiene prestamos asociados.', () => {
-
         socio2.setCedula(222);
 
         prestamo.setSocio(socio);
