@@ -8,8 +8,22 @@ describe('Biblioteca', () => {
 
     //Inicializar el componente y crear una instancia para cada prueba
     let biblioteca: Biblioteca;
+    let libro: Libro;
+    let libro2: Libro;
+    let socio: Socio;
+    let socio2: Socio;
+    let prestamo: Prestamo;
+    let prestamo2: Prestamo;
+    let prestamo3: Prestamo;
     beforeEach(() => {
         biblioteca = new Biblioteca();
+        libro = new Libro();
+        libro2 = new Libro();
+        socio = new Socio();
+        socio2 = new Socio();
+        prestamo = new Prestamo()
+        prestamo2 = new Prestamo()
+        prestamo3 = new Prestamo()
     });
 
     it('should create an instance', () => {
@@ -18,16 +32,15 @@ describe('Biblioteca', () => {
 
 
     //Nombre: Encontrar un libro
-    //Objetivo: Verificar que el metodo funciona correctamente
+    //Objetivo: Verificar que el método buscarPosicionLibro() de la clase biblioteca 
+    //retorne la posición correcta del libro en la colección al buscar por su código identificador.
     //Datos: Codigo de Libro -> 10
     //Resultado esperado: La posicion del libro -> 1
-    it('Encontrar un libro', () => {
+    it('Buscar un libro que esté en la lista y devolver la posición en la que se encuentra.', () => {
 
         
-        const libro = new Libro();
+    
         libro.setCodigo(0);
-
-        const libro2 = new Libro();
         libro2.setCodigo(10);
         
         biblioteca.setLibro(libro)
@@ -38,15 +51,13 @@ describe('Biblioteca', () => {
 
 
     //Nombre: No encontrar un libro
-    //Objetivo: Verificar que el metodo funciona correctamente
+    //Objetivo: Verificar que el método buscarPosicionLibro() de la clase biblioteca retorne -1 
+    //cuando se busca un libro con un código identificador que no está presente en la colección de libros.
     //Datos: Codigo de Libro -> 20
-    //Resultado esperado: La posicion del libro -> -1
-    it('No encontrar un libro', () => {
+    //Resultado esperado: -1 ya que el libro no se encuentra en la lista.
+    it('Buscar un libro que no esté en la lista y devolver -1.', () => {
 
-        const libro = new Libro();
         libro.setCodigo(0);
-
-        const libro2 = new Libro();
         libro2.setCodigo(10);
         
         biblioteca.setLibro(libro)
@@ -56,17 +67,13 @@ describe('Biblioteca', () => {
     });
 
     //Nombre: Encontrar prestamos asociados a un socio.
-    //Objetivo: Verificar que el metodo funciona correctamente
+    //Objetivo: Verificar que el método cantidadPrestamosDeUnSocio() 
+    //de la clase biblioteca retorne correctamente el número de préstamos asociados a un socio, identificado por su cédula.
     //Datos: Cedula de socio -> 111
     //Resultado esperado: Prestamos asociados -> 3
-    it('Tiene prestamos', () => {
+    it('Obtener la cantidad de prestamos vinculados que tiene un socio.', () => {
 
-        const socio = new Socio();
         socio.setCedula(111);
-
-        const prestamo = new Prestamo()
-        const prestamo2 = new Prestamo()
-        const prestamo3 = new Prestamo()
 
         prestamo.setSocio(socio);
         prestamo2.setSocio(socio);
@@ -80,18 +87,13 @@ describe('Biblioteca', () => {
     });
 
     //Nombre: No encontrar prestamos asociados a un socio.
-    //Objetivo: Verificar que el metodo funciona correctamente
+    //Objetivo: Verificar que el método cantidadPrestamosDeUnSocio() 
+    //de la clase biblioteca retorne 0 cuando se consulta por un socio, identificado por su cédula, que no tiene prestamos asociados.
     //Datos: Cedula de socio -> 222
     //Resultado esperado: Prestamos asociados -> 0
-    it('No tiene prestamos', () => {
+    it('Obtener como cantidad 0 de prestamos de un socio si no tiene prestamos asociados.', () => {
 
-        const socio = new Socio();
-        const socio2 = new Socio();
         socio2.setCedula(222);
-
-        const prestamo = new Prestamo()
-        const prestamo2 = new Prestamo()
-        const prestamo3 = new Prestamo()
 
         prestamo.setSocio(socio);
         prestamo2.setSocio(socio);
